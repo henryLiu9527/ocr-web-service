@@ -1,0 +1,8 @@
+flask==2.0.1
+Werkzeug==2.0.1
+ocrmypdf==15.2.0
+pikepdf==8.7.1
+gunicorn==23.0.0
+PyPDF2==3.0.1
+pandas==2.0.3
+openpyxl==3.1.2

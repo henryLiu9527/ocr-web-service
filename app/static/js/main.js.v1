@@ -1,0 +1,62 @@
+document.addEventListener('DOMContentLoaded', function() {
+    const fileInput = document.getElementById('file');
+    const submitButton = document.querySelector('button[type="submit"]');
+    const form = document.querySelector('form');
+
+    fileInput.addEventListener('change', function() {
+        if (this.files.length > 0) {
+            const fileName = this.files[0].name;
+            if (!fileName.toLowerCase().endsWith('.pdf')) {
+                alert('请选择PDF文件！');
+                this.value = '';
+            }
+            // 当选择新文件时，启用提交按钮
+            submitButton.disabled = false;
+            submitButton.innerHTML = '开始OCR处理';
+        }
+    });
+
+    form.addEventListener('submit', function(e) {
+        submitButton.disabled = true;
+        submitButton.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> 处理中...';
+        
+        // 使用fetch来提交表单
+        e.preventDefault();
+        const formData = new FormData(this);
+        
+        fetch('/', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => {
+            if (!response.ok) {
+                return response.json().then(data => {
+                    throw new Error(data.error || '处理失败，请重试');
+                });
+            }
+            return response.blob();
+        })
+        .then(blob => {
+            // 创建下载链接
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'ocr_' + fileInput.files[0].name;
+            document.body.appendChild(a);
+            a.click();
+            window.URL.revokeObjectURL(url);
+            document.body.removeChild(a);
+            
+            // 重置表单和按钮状态
+            form.reset();
+            submitButton.disabled = false;
+            submitButton.innerHTML = '开始OCR处理';
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert(error.message || '处理失败，请重试');
+            submitButton.disabled = false;
+            submitButton.innerHTML = '开始OCR处理';
+        });
+    });
+}); 

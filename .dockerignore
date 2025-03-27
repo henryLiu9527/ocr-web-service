@@ -1,0 +1,59 @@
+**/__pycache__
+**/.venv
+**/.classpath
+**/.dockerignore
+**/.env
+**/.git
+**/.gitignore
+**/.project
+**/.settings
+**/.toolstarget
+**/.vs
+**/.vscode
+**/*.*proj.user
+**/*.dbmdl
+**/*.jfm
+**/bin
+**/charts
+**/docker-compose*
+**/compose*
+**/Dockerfile*
+**/node_modules
+**/npm-debug.log
+**/obj
+**/secrets.dev.yaml
+**/values.dev.yaml
+LICENSE
+README.md
+=======
+# 忽略Python缓存文件
+**/__pycache__
+**/*.py[cod]
+**/*$py.class
+
+# 忽略虚拟环境
+**/.venv
+**/venv
+**/env
+
+# 忽略版本控制相关
+**/.git
+**/.gitignore
+
+# 忽略编辑器配置
+**/.vscode
+**/.idea
+**/.vs
+
+# 忽略日志文件
+**/*.log
+
+# 忽略上传的文件（这些将通过卷挂载）
+uploads/*
+!uploads/.gitkeep
+
+# 忽略其他不需要的文件
+**/.DS_Store
+**/.env
+LICENSE
+README.md
