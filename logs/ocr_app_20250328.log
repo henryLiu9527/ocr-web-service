@@ -1,0 +1,245 @@
+2025-03-28 00:45:29,217 - ocr_app - INFO - 收到GET请求，返回首页
+2025-03-28 00:45:42,809 - ocr_app - INFO - 收到POST请求
+2025-03-28 00:45:42,835 - ocr_app - INFO - 上传的文件数量: 1
+2025-03-28 00:45:42,835 - ocr_app - INFO - 处理第1个文件: 阿里云专票2.pdf
+2025-03-28 00:45:42,835 - ocr_app - DEBUG - 保存上传文件到: /opt/ocr-web/uploads/input_8707f5d1-2ed5-4104-9373-0bc7f320d9df.pdf
+2025-03-28 00:45:42,836 - ocr_app - INFO - 选择的输出格式: txt
+2025-03-28 00:45:42,836 - ocr_app - INFO - 开始并发处理文件，并发数: 1
+2025-03-28 00:45:42,837 - ocr_app - INFO - 开始处理文件: /opt/ocr-web/uploads/input_8707f5d1-2ed5-4104-9373-0bc7f320d9df.pdf
+2025-03-28 00:45:42,837 - ocr_app - INFO - 输出路径: /opt/ocr-web/uploads/output_8707f5d1-2ed5-4104-9373-0bc7f320d9df.pdf
+2025-03-28 00:45:42,837 - ocr_app - INFO - 输出格式: txt
+2025-03-28 00:45:42,837 - ocr_app - INFO - 文件大小: 36345 字节
+2025-03-28 00:45:42,837 - ocr_app - INFO - 执行OCR命令: ocrmypdf --skip-text --optimize 1 --deskew --clean --language chi_sim+chi_tra+eng --verbose --output-type pdf --jobs 1 --force-ocr /opt/ocr-web/uploads/input_8707f5d1-2ed5-4104-9373-0bc7f320d9df.pdf /opt/ocr-web/uploads/output_8707f5d1-2ed5-4104-9373-0bc7f320d9df.pdf
+2025-03-28 00:45:43,039 - ocr_app - INFO - OCR命令输出:
+2025-03-28 00:45:43,039 - ocr_app - INFO - 
+2025-03-28 00:45:43,040 - ocr_app - ERROR - OCR处理失败，错误输出:
+2025-03-28 00:45:43,040 - ocr_app - ERROR - ocrmypdf 15.2.0
+Running: ['unpaper', '--version']
+Found unpaper 7.0.0
+Choose only one of --force-ocr, --skip-text, --redo-ocr.
+
+2025-03-28 00:45:43,040 - ocr_app - ERROR - 处理PDF文件失败: OCR处理失败: ocrmypdf 15.2.0
+Running: ['unpaper', '--version']
+Found unpaper 7.0.0
+Choose only one of --force-ocr, --skip-text, --redo-ocr.
+
+2025-03-28 00:45:43,040 - ocr_app - ERROR - Traceback (most recent call last):
+  File "/opt/ocr-web/app/routes.py", line 297, in process_pdf
+    raise Exception(f"OCR处理失败: {result.stderr}")
+Exception: OCR处理失败: ocrmypdf 15.2.0
+Running: ['unpaper', '--version']
+Found unpaper 7.0.0
+Choose only one of --force-ocr, --skip-text, --redo-ocr.
+
+
+2025-03-28 00:45:43,040 - ocr_app - INFO - 已删除输入文件: /opt/ocr-web/uploads/input_8707f5d1-2ed5-4104-9373-0bc7f320d9df.pdf
+2025-03-28 00:45:43,040 - ocr_app - ERROR - 文件处理失败: OCR处理失败: ocrmypdf 15.2.0
+Running: ['unpaper', '--version']
+Found unpaper 7.0.0
+Choose only one of --force-ocr, --skip-text, --redo-ocr.
+
+2025-03-28 00:45:43,052 - ocr_app - ERROR - Traceback (most recent call last):
+  File "/opt/ocr-web/app/routes.py", line 481, in index
+    output_path = future.result()
+  File "/usr/lib/python3.10/concurrent/futures/_base.py", line 451, in result
+    return self.__get_result()
+  File "/usr/lib/python3.10/concurrent/futures/_base.py", line 403, in __get_result
+    raise self._exception
+  File "/usr/lib/python3.10/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/opt/ocr-web/app/routes.py", line 422, in process_pdf
+    raise e
+  File "/opt/ocr-web/app/routes.py", line 297, in process_pdf
+    raise Exception(f"OCR处理失败: {result.stderr}")
+Exception: OCR处理失败: ocrmypdf 15.2.0
+Running: ['unpaper', '--version']
+Found unpaper 7.0.0
+Choose only one of --force-ocr, --skip-text, --redo-ocr.
+
+
+2025-03-28 00:45:58,643 - ocr_app - INFO - 收到POST请求
+2025-03-28 00:45:58,665 - ocr_app - INFO - 上传的文件数量: 1
+2025-03-28 00:45:58,665 - ocr_app - INFO - 处理第1个文件: 阿里云专票2.pdf
+2025-03-28 00:45:58,665 - ocr_app - DEBUG - 保存上传文件到: /opt/ocr-web/uploads/input_d8eae3ff-323c-4b18-a4ad-86cfa0cfab61.pdf
+2025-03-28 00:45:58,665 - ocr_app - INFO - 选择的输出格式: pdf
+2025-03-28 00:45:58,665 - ocr_app - INFO - 开始并发处理文件，并发数: 1
+2025-03-28 00:45:58,666 - ocr_app - INFO - 开始处理文件: /opt/ocr-web/uploads/input_d8eae3ff-323c-4b18-a4ad-86cfa0cfab61.pdf
+2025-03-28 00:45:58,666 - ocr_app - INFO - 输出路径: /opt/ocr-web/uploads/output_d8eae3ff-323c-4b18-a4ad-86cfa0cfab61.pdf
+2025-03-28 00:45:58,666 - ocr_app - INFO - 输出格式: pdf
+2025-03-28 00:45:58,666 - ocr_app - INFO - 文件大小: 36345 字节
+2025-03-28 00:45:58,666 - ocr_app - INFO - 执行OCR命令: ocrmypdf --skip-text --optimize 1 --deskew --clean --language chi_sim+chi_tra+eng --verbose --output-type pdf --jobs 1 --force-ocr /opt/ocr-web/uploads/input_d8eae3ff-323c-4b18-a4ad-86cfa0cfab61.pdf /opt/ocr-web/uploads/output_d8eae3ff-323c-4b18-a4ad-86cfa0cfab61.pdf
+2025-03-28 00:45:58,868 - ocr_app - INFO - OCR命令输出:
+2025-03-28 00:45:58,868 - ocr_app - INFO - 
+2025-03-28 00:45:58,868 - ocr_app - ERROR - OCR处理失败，错误输出:
+2025-03-28 00:45:58,868 - ocr_app - ERROR - ocrmypdf 15.2.0
+Running: ['unpaper', '--version']
+Found unpaper 7.0.0
+Choose only one of --force-ocr, --skip-text, --redo-ocr.
+
+2025-03-28 00:45:58,868 - ocr_app - ERROR - 处理PDF文件失败: OCR处理失败: ocrmypdf 15.2.0
+Running: ['unpaper', '--version']
+Found unpaper 7.0.0
+Choose only one of --force-ocr, --skip-text, --redo-ocr.
+
+2025-03-28 00:45:58,868 - ocr_app - ERROR - Traceback (most recent call last):
+  File "/opt/ocr-web/app/routes.py", line 297, in process_pdf
+    raise Exception(f"OCR处理失败: {result.stderr}")
+Exception: OCR处理失败: ocrmypdf 15.2.0
+Running: ['unpaper', '--version']
+Found unpaper 7.0.0
+Choose only one of --force-ocr, --skip-text, --redo-ocr.
+
+
+2025-03-28 00:45:58,868 - ocr_app - INFO - 已删除输入文件: /opt/ocr-web/uploads/input_d8eae3ff-323c-4b18-a4ad-86cfa0cfab61.pdf
+2025-03-28 00:45:58,868 - ocr_app - ERROR - 文件处理失败: OCR处理失败: ocrmypdf 15.2.0
+Running: ['unpaper', '--version']
+Found unpaper 7.0.0
+Choose only one of --force-ocr, --skip-text, --redo-ocr.
+
+2025-03-28 00:45:58,868 - ocr_app - ERROR - Traceback (most recent call last):
+  File "/opt/ocr-web/app/routes.py", line 481, in index
+    output_path = future.result()
+  File "/usr/lib/python3.10/concurrent/futures/_base.py", line 451, in result
+    return self.__get_result()
+  File "/usr/lib/python3.10/concurrent/futures/_base.py", line 403, in __get_result
+    raise self._exception
+  File "/usr/lib/python3.10/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/opt/ocr-web/app/routes.py", line 422, in process_pdf
+    raise e
+  File "/opt/ocr-web/app/routes.py", line 297, in process_pdf
+    raise Exception(f"OCR处理失败: {result.stderr}")
+Exception: OCR处理失败: ocrmypdf 15.2.0
+Running: ['unpaper', '--version']
+Found unpaper 7.0.0
+Choose only one of --force-ocr, --skip-text, --redo-ocr.
+
+
+2025-03-28 00:46:07,888 - ocr_app - INFO - 收到POST请求
+2025-03-28 00:46:07,912 - ocr_app - INFO - 上传的文件数量: 1
+2025-03-28 00:46:07,912 - ocr_app - INFO - 处理第1个文件: 阿里云专票2.pdf
+2025-03-28 00:46:07,912 - ocr_app - DEBUG - 保存上传文件到: /opt/ocr-web/uploads/input_2aaa55a6-144a-4fa1-a8b3-ed2a624f3f86.pdf
+2025-03-28 00:46:07,912 - ocr_app - INFO - 选择的输出格式: csv
+2025-03-28 00:46:07,913 - ocr_app - INFO - 开始并发处理文件，并发数: 1
+2025-03-28 00:46:07,913 - ocr_app - INFO - 开始处理文件: /opt/ocr-web/uploads/input_2aaa55a6-144a-4fa1-a8b3-ed2a624f3f86.pdf
+2025-03-28 00:46:07,913 - ocr_app - INFO - 输出路径: /opt/ocr-web/uploads/output_2aaa55a6-144a-4fa1-a8b3-ed2a624f3f86.pdf
+2025-03-28 00:46:07,913 - ocr_app - INFO - 输出格式: csv
+2025-03-28 00:46:07,913 - ocr_app - INFO - 文件大小: 36345 字节
+2025-03-28 00:46:07,913 - ocr_app - INFO - 执行OCR命令: ocrmypdf --skip-text --optimize 1 --deskew --clean --language chi_sim+chi_tra+eng --verbose --output-type pdf --jobs 1 --force-ocr /opt/ocr-web/uploads/input_2aaa55a6-144a-4fa1-a8b3-ed2a624f3f86.pdf /opt/ocr-web/uploads/output_2aaa55a6-144a-4fa1-a8b3-ed2a624f3f86.pdf
+2025-03-28 00:46:08,115 - ocr_app - INFO - OCR命令输出:
+2025-03-28 00:46:08,116 - ocr_app - INFO - 
+2025-03-28 00:46:08,116 - ocr_app - ERROR - OCR处理失败，错误输出:
+2025-03-28 00:46:08,116 - ocr_app - ERROR - ocrmypdf 15.2.0
+Running: ['unpaper', '--version']
+Found unpaper 7.0.0
+Choose only one of --force-ocr, --skip-text, --redo-ocr.
+
+2025-03-28 00:46:08,116 - ocr_app - ERROR - 处理PDF文件失败: OCR处理失败: ocrmypdf 15.2.0
+Running: ['unpaper', '--version']
+Found unpaper 7.0.0
+Choose only one of --force-ocr, --skip-text, --redo-ocr.
+
+2025-03-28 00:46:08,116 - ocr_app - ERROR - Traceback (most recent call last):
+  File "/opt/ocr-web/app/routes.py", line 297, in process_pdf
+    raise Exception(f"OCR处理失败: {result.stderr}")
+Exception: OCR处理失败: ocrmypdf 15.2.0
+Running: ['unpaper', '--version']
+Found unpaper 7.0.0
+Choose only one of --force-ocr, --skip-text, --redo-ocr.
+
+
+2025-03-28 00:46:08,116 - ocr_app - INFO - 已删除输入文件: /opt/ocr-web/uploads/input_2aaa55a6-144a-4fa1-a8b3-ed2a624f3f86.pdf
+2025-03-28 00:46:08,116 - ocr_app - ERROR - 文件处理失败: OCR处理失败: ocrmypdf 15.2.0
+Running: ['unpaper', '--version']
+Found unpaper 7.0.0
+Choose only one of --force-ocr, --skip-text, --redo-ocr.
+
+2025-03-28 00:46:08,116 - ocr_app - ERROR - Traceback (most recent call last):
+  File "/opt/ocr-web/app/routes.py", line 481, in index
+    output_path = future.result()
+  File "/usr/lib/python3.10/concurrent/futures/_base.py", line 451, in result
+    return self.__get_result()
+  File "/usr/lib/python3.10/concurrent/futures/_base.py", line 403, in __get_result
+    raise self._exception
+  File "/usr/lib/python3.10/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/opt/ocr-web/app/routes.py", line 422, in process_pdf
+    raise e
+  File "/opt/ocr-web/app/routes.py", line 297, in process_pdf
+    raise Exception(f"OCR处理失败: {result.stderr}")
+Exception: OCR处理失败: ocrmypdf 15.2.0
+Running: ['unpaper', '--version']
+Found unpaper 7.0.0
+Choose only one of --force-ocr, --skip-text, --redo-ocr.
+
+
+2025-03-28 00:49:11,409 - ocr_app - INFO - 收到GET请求，返回首页
+2025-03-28 00:49:21,242 - ocr_app - INFO - 收到POST请求
+2025-03-28 00:49:21,291 - ocr_app - INFO - 上传的文件数量: 1
+2025-03-28 00:49:21,292 - ocr_app - INFO - 处理第1个文件: 阿里云专票1.pdf
+2025-03-28 00:49:21,292 - ocr_app - DEBUG - 保存上传文件到: /opt/ocr-web/uploads/input_8879a818-c18a-4d3b-8a07-4d0870710a3c.pdf
+2025-03-28 00:49:21,292 - ocr_app - INFO - 选择的输出格式: txt
+2025-03-28 00:49:21,292 - ocr_app - INFO - 开始并发处理文件，并发数: 1
+2025-03-28 00:49:21,292 - ocr_app - INFO - 开始处理文件: /opt/ocr-web/uploads/input_8879a818-c18a-4d3b-8a07-4d0870710a3c.pdf
+2025-03-28 00:49:21,292 - ocr_app - INFO - 输出路径: /opt/ocr-web/uploads/output_8879a818-c18a-4d3b-8a07-4d0870710a3c.pdf
+2025-03-28 00:49:21,292 - ocr_app - INFO - 输出格式: txt
+2025-03-28 00:49:21,292 - ocr_app - INFO - 文件大小: 137997 字节
+2025-03-28 00:49:21,292 - ocr_app - INFO - 执行OCR命令: ocrmypdf --force-ocr --optimize 1 --deskew --clean --language chi_sim+chi_tra+eng --verbose --output-type pdf --jobs 1 /opt/ocr-web/uploads/input_8879a818-c18a-4d3b-8a07-4d0870710a3c.pdf /opt/ocr-web/uploads/output_8879a818-c18a-4d3b-8a07-4d0870710a3c.pdf
+2025-03-28 00:49:35,805 - ocr_app - INFO - OCR命令输出:
+2025-03-28 00:49:35,805 - ocr_app - INFO - 
+2025-03-28 00:49:35,805 - ocr_app - INFO - OCR处理成功: /opt/ocr-web/uploads/output_8879a818-c18a-4d3b-8a07-4d0870710a3c.pdf
+2025-03-28 00:49:35,805 - ocr_app - INFO - 处理后文件大小: 1333285 字节
+2025-03-28 00:49:35,806 - ocr_app - INFO - 开始转换为txt格式: /opt/ocr-web/uploads/output_8879a818-c18a-4d3b-8a07-4d0870710a3c.txt
+2025-03-28 00:49:35,806 - ocr_app - INFO - 开始提取文本内容
+2025-03-28 00:49:35,806 - ocr_app - INFO - 开始从PDF提取文本: /opt/ocr-web/uploads/output_8879a818-c18a-4d3b-8a07-4d0870710a3c.pdf
+2025-03-28 00:49:35,807 - ocr_app - INFO - PDF页数: 1
+2025-03-28 00:49:35,909 - ocr_app - DEBUG - 提取第1页文本，长度: 392
+2025-03-28 00:49:35,909 - ocr_app - INFO - 成功提取文本，总长度: 394
+2025-03-28 00:49:35,909 - ocr_app - DEBUG - 开始处理竖排文字
+2025-03-28 00:49:35,910 - ocr_app - DEBUG - 竖排文字处理完成，处理后文本长度: 392
+2025-03-28 00:49:35,910 - ocr_app - INFO - 提取的文本长度: 392
+2025-03-28 00:49:35,910 - ocr_app - INFO - 文本内容已写入文件: /opt/ocr-web/uploads/output_8879a818-c18a-4d3b-8a07-4d0870710a3c.txt
+2025-03-28 00:49:35,911 - ocr_app - INFO - 已删除原PDF文件: /opt/ocr-web/uploads/output_8879a818-c18a-4d3b-8a07-4d0870710a3c.pdf
+2025-03-28 00:49:35,911 - ocr_app - INFO - 已删除输入文件: /opt/ocr-web/uploads/input_8879a818-c18a-4d3b-8a07-4d0870710a3c.pdf
+2025-03-28 00:49:35,911 - ocr_app - INFO - 文件处理成功: /opt/ocr-web/uploads/output_8879a818-c18a-4d3b-8a07-4d0870710a3c.txt
+2025-03-28 00:49:35,911 - ocr_app - INFO - 所有文件处理完成，成功数量: 1
+2025-03-28 00:49:35,911 - ocr_app - INFO - 返回单个处理后的文件: ocr_1.txt
+2025-03-28 00:49:40,507 - ocr_app - INFO - 收到POST请求
+2025-03-28 00:49:40,549 - ocr_app - INFO - 上传的文件数量: 1
+2025-03-28 00:49:40,549 - ocr_app - INFO - 处理第1个文件: 阿里云专票1.pdf
+2025-03-28 00:49:40,549 - ocr_app - DEBUG - 保存上传文件到: /opt/ocr-web/uploads/input_1c73c950-6cd6-434c-b5ae-d2c2fe2f5607.pdf
+2025-03-28 00:49:40,549 - ocr_app - INFO - 选择的输出格式: csv
+2025-03-28 00:49:40,549 - ocr_app - INFO - 开始并发处理文件，并发数: 1
+2025-03-28 00:49:40,550 - ocr_app - INFO - 开始处理文件: /opt/ocr-web/uploads/input_1c73c950-6cd6-434c-b5ae-d2c2fe2f5607.pdf
+2025-03-28 00:49:40,550 - ocr_app - INFO - 输出路径: /opt/ocr-web/uploads/output_1c73c950-6cd6-434c-b5ae-d2c2fe2f5607.pdf
+2025-03-28 00:49:40,550 - ocr_app - INFO - 输出格式: csv
+2025-03-28 00:49:40,550 - ocr_app - INFO - 文件大小: 137997 字节
+2025-03-28 00:49:40,550 - ocr_app - INFO - 执行OCR命令: ocrmypdf --force-ocr --optimize 1 --deskew --clean --language chi_sim+chi_tra+eng --verbose --output-type pdf --jobs 1 /opt/ocr-web/uploads/input_1c73c950-6cd6-434c-b5ae-d2c2fe2f5607.pdf /opt/ocr-web/uploads/output_1c73c950-6cd6-434c-b5ae-d2c2fe2f5607.pdf
+2025-03-28 00:49:54,929 - ocr_app - INFO - OCR命令输出:
+2025-03-28 00:49:54,929 - ocr_app - INFO - 
+2025-03-28 00:49:54,929 - ocr_app - INFO - OCR处理成功: /opt/ocr-web/uploads/output_1c73c950-6cd6-434c-b5ae-d2c2fe2f5607.pdf
+2025-03-28 00:49:54,929 - ocr_app - INFO - 处理后文件大小: 1333285 字节
+2025-03-28 00:49:54,929 - ocr_app - INFO - 开始转换为csv格式: /opt/ocr-web/uploads/output_1c73c950-6cd6-434c-b5ae-d2c2fe2f5607.csv
+2025-03-28 00:49:54,929 - ocr_app - INFO - 开始转换为CSV格式
+2025-03-28 00:49:54,929 - ocr_app - INFO - 开始将PDF转换为CSV: /opt/ocr-web/uploads/output_1c73c950-6cd6-434c-b5ae-d2c2fe2f5607.pdf
+2025-03-28 00:49:54,929 - ocr_app - DEBUG - 调用convert_pdf_to_text获取文本内容
+2025-03-28 00:49:54,929 - ocr_app - INFO - 开始从PDF提取文本: /opt/ocr-web/uploads/output_1c73c950-6cd6-434c-b5ae-d2c2fe2f5607.pdf
+2025-03-28 00:49:54,930 - ocr_app - INFO - PDF页数: 1
+2025-03-28 00:49:55,034 - ocr_app - DEBUG - 提取第1页文本，长度: 392
+2025-03-28 00:49:55,034 - ocr_app - INFO - 成功提取文本，总长度: 394
+2025-03-28 00:49:55,035 - ocr_app - DEBUG - 开始处理竖排文字
+2025-03-28 00:49:55,035 - ocr_app - DEBUG - 竖排文字处理完成，处理后文本长度: 392
+2025-03-28 00:49:55,035 - ocr_app - INFO - 提取到9行文本
+2025-03-28 00:49:55,036 - ocr_app - DEBUG - 表格结构检测: 包含制表符=False, 包含多个连续空格=False
+2025-03-28 00:49:55,036 - ocr_app - INFO - 尝试智能分割文本
+2025-03-28 00:49:55,036 - ocr_app - DEBUG - 行长度分析: 平均长度=41.33, 相似长度行数=2/9
+2025-03-28 00:49:55,036 - ocr_app - INFO - 使用单个空格分割文本
+2025-03-28 00:49:55,036 - ocr_app - INFO - CSV数据: 9行, 最大字段数: 52
+2025-03-28 00:49:55,036 - ocr_app - INFO - CSV数据行数: 9
+2025-03-28 00:49:55,036 - ocr_app - INFO - 使用第一行作为表头: ['(28H:', '24337000000101764245', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+2025-03-28 00:49:55,050 - ocr_app - INFO - CSV数据已写入文件: /opt/ocr-web/uploads/output_1c73c950-6cd6-434c-b5ae-d2c2fe2f5607.csv
+2025-03-28 00:49:55,050 - ocr_app - INFO - 已删除原PDF文件: /opt/ocr-web/uploads/output_1c73c950-6cd6-434c-b5ae-d2c2fe2f5607.pdf
+2025-03-28 00:49:55,050 - ocr_app - INFO - 已删除输入文件: /opt/ocr-web/uploads/input_1c73c950-6cd6-434c-b5ae-d2c2fe2f5607.pdf
+2025-03-28 00:49:55,050 - ocr_app - INFO - 文件处理成功: /opt/ocr-web/uploads/output_1c73c950-6cd6-434c-b5ae-d2c2fe2f5607.csv
+2025-03-28 00:49:55,050 - ocr_app - INFO - 所有文件处理完成，成功数量: 1
+2025-03-28 00:49:55,050 - ocr_app - INFO - 返回单个处理后的文件: ocr_1.csv
