@@ -5,21 +5,21 @@
     <div class="col-md-8">
         <div class="card">
             <div class="card-header">
-                PDF OCR处理
+                PDF OCR Processing
             </div>
             <div class="card-body">
                 <form method="POST" enctype="multipart/form-data">
                     <div class="mb-3">
-                        <label for="files" class="form-label">选择PDF文件（可多选）</label>
+                        <label for="files" class="form-label">Select PDF files (multiple allowed)</label>
                         <input type="file" class="form-control" id="files" name="files[]" accept=".pdf" multiple required>
                     </div>
                     <div class="mb-3">
-                        <label for="output_format" class="form-label">选择输出格式</label>
+                        <label for="output_format" class="form-label">Select output format</label>
                         <select class="form-select" id="output_format" name="output_format">
-                            <option value="pdf" selected>PDF (默认)</option>
-                            <option value="txt">TXT 文本</option>
-                            <option value="csv">CSV 表格</option>
-                            <option value="xlsx">XLSX 表格</option>
+                            <option value="pdf" selected>PDF (default)</option>
+                            <option value="txt">TXT text</option>
+                            <option value="csv">CSV table</option>
+                            <option value="xlsx">XLSX spreadsheet</option>
                         </select>
                     </div>
                     <div class="progress mb-3 d-none" id="progress-container">
@@ -29,7 +29,16 @@
                         <!-- 文件列表将在这里显示 -->
                     </div>
                     <div class="d-grid">
-                        <button type="submit" class="btn btn-primary">开始OCR处理</button>
+                        <button type="submit" class="btn btn-primary">Start OCR Processing</button>
+                    </div>
+                    
+                    <div class="alert alert-info mt-4">
+                        <h5>Conversion Limits</h5>
+                        <ul class="mb-0">
+                            <li>Max files per upload: {{ config.MAX_FILES }}</li>
+                            <li>Max file size: {{ config.MAX_CONTENT_LENGTH / (1024*1024) | round(2) }} MB</li>
+                            <li>Concurrent processes: {{ config.CONCURRENT_PROCESSES }}</li>
+                        </ul>
                     </div>
                 </form>
             </div>
