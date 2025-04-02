@@ -15,20 +15,27 @@ services:
       - SECRET_KEY=your-secret-key-here  # 应用密钥，生产环境中应使用强密码
       - MAX_CONTENT_LENGTH=52428800      # 50MB 最大上传文件大小
       - MAX_FILES=10                     # 最大同时处理文件数
-      - CONCURRENT_PROCESSES=1           # OCR处理并发数
+      - CONCURRENT_PROCESSES=2           # OCR处理并发数
+      # 添加环境变量解决NumPy/Pandas兼容性问题
+      - PYTHONWARNINGS=ignore::RuntimeWarning
     deploy:
       resources:
         limits:
-          cpus: '1'                      # 限制CPU使用
-          memory: 1G                     # 限制内存使用
+          cpus: '2'                      # CPU限制
+          memory: 2G                     # 内存限制
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:5000/"]
-      interval: 30s                      # 降低健康检查间隔，更快发现问题
+      interval: 30s
       timeout: 5s
       retries: 3
-    restart: unless-stopped              # 除非手动停止，否则总是重启容器
+      start_period: 10s                  # 给应用足够时间初始化
+    restart: unless-stopped
     logging:
       driver: "json-file"
       options:
-        max-size: "10m"                  # 限制日志大小
-        max-file: "3" 
+        max-size: "20m"
+        max-file: "5"
+    ulimits:
+      nofile:
+        soft: 10000                      # 增加文件描述符限制
+        hard: 10000

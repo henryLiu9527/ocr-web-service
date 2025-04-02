@@ -10,9 +10,11 @@ RUN apt-get update && apt-get install -y \
 RUN python -m venv /opt/venv
 ENV PATH="/opt/venv/bin:$PATH"
 
-# 安装Python依赖
+# 安装Python依赖 - 修改安装方式确保依赖兼容性
 COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+# 单独安装numpy并确保安装完成
+RUN pip install --no-cache-dir numpy==1.24.3 && \
+    pip install --no-cache-dir -r requirements.txt
 
 # 第二阶段：运行时镜像
 FROM python:3.9-slim
@@ -35,6 +37,9 @@ RUN apt-get update && apt-get install -y \
 COPY --from=builder /opt/venv /opt/venv
 ENV PATH="/opt/venv/bin:$PATH"
 
+# 创建非root用户
+RUN groupadd -r ocrapp && useradd -r -g ocrapp ocrapp
+
 # 设置工作目录
 WORKDIR /app
 
@@ -42,17 +47,22 @@ WORKDIR /app
 COPY app/ /app/app/
 COPY config.py run.py /app/
 
-# 创建上传目录
-# 注意：实际运行时会通过卷挂载覆盖此目录
+# 创建上传目录并设置权限
 RUN mkdir -p /app/uploads && \
+    chown -R ocrapp:ocrapp /app && \
+    chmod -R 755 /app && \
     chmod -R 777 /app/uploads
 
 # 设置环境变量
 ENV FLASK_APP=run.py
 ENV PYTHONUNBUFFERED=1
+ENV PYTHONDONTWRITEBYTECODE=1
 
 # 暴露端口
 EXPOSE 5000
+
+# 切换到非root用户
+USER ocrapp
 
 # 健康检查
 HEALTHCHECK --interval=30s --timeout=5s --retries=3 \
