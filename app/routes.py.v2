@@ -141,18 +141,17 @@ def process_pdf(file_info, upload_folder, output_format='pdf'):
         if not os.path.exists(input_path):
             raise Exception(f"输入文件不存在: {input_path}")
             
-        # 修改ocrmypdf命令，添加--invalidate-digital-signatures参数
+        # 添加verbose参数获取更多信息
         result = subprocess.run([
             'ocrmypdf',
-            '--skip-text',                    # 保留原有文本
-            '--optimize', '1',                # 优化PDF大小
-            '--deskew',                       # 自动纠偏
-            '--clean',                        # 清理图像
-            '--invalidate-digital-signatures', # 允许处理带签名的PDF
+            '--skip-text',          # 保留原有文本
+            '--optimize', '1',       # 优化PDF大小
+            '--deskew',             # 自动纠偏
+            '--clean',              # 清理图像
             '--language', 'chi_sim+chi_tra+eng',  # 简体中文+繁体中文+英文
-            '--verbose',                      # 详细输出
-            '--output-type', 'pdf',           # 指定输出类型
-            '--jobs', '1',                    # 单线程处理
+            '--verbose',            # 详细输出
+            '--output-type', 'pdf', # 指定输出类型
+            '--jobs', '1',          # 单线程处理
             input_path,
             output_path
         ], capture_output=True, text=True)

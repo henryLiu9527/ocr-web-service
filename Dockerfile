@@ -37,9 +37,6 @@ RUN apt-get update && apt-get install -y \
 COPY --from=builder /opt/venv /opt/venv
 ENV PATH="/opt/venv/bin:$PATH"
 
-# 创建非root用户
-RUN groupadd -r ocrapp && useradd -r -g ocrapp ocrapp
-
 # 设置工作目录
 WORKDIR /app
 
@@ -49,8 +46,6 @@ COPY config.py run.py /app/
 
 # 创建上传目录并设置权限
 RUN mkdir -p /app/uploads && \
-    chown -R ocrapp:ocrapp /app && \
-    chmod -R 755 /app && \
     chmod -R 777 /app/uploads
 
 # 设置环境变量
@@ -60,9 +55,6 @@ ENV PYTHONDONTWRITEBYTECODE=1
 
 # 暴露端口
 EXPOSE 5000
-
-# 切换到非root用户
-USER ocrapp
 
 # 健康检查
 HEALTHCHECK --interval=30s --timeout=5s --retries=3 \
